@@ -1,0 +1,26 @@
+set ServerOutput on
+declare
+  nome varchar(20) := 'guilherme';
+  pi constant number(3,2) := 3.14;
+  v_nome clientes.nome%type;
+  
+begin
+  dbms_output.put_line(nome || pi);
+  dbms_output.put_line(v_nome);
+end;
+/
+
+CREATE TABLE clientes(
+  codigo number(4),
+  nome varchar(20)
+  );
+  
+  DROP TABle cliente;
+  
+  INSERT INTO clientes(codigo, nome) VALUES (1,'guilherme');
+  INSERT INTO clientes(codigo, nome) VALUES (2,'Katrina');
+  INSERT INTO clientes(codigo, nome) VALUES (3,'Ana');
+  
+  SELECT * FROM clientes;
+  
+  ALTER TABLE clientes modify(codigo primary key);
