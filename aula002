@@ -1,0 +1,41 @@
+DROP TABLE ALUNOS;
+CREATE TABLE alunos(
+  nome varchar(30) not null,
+  RA varchar(30) not null,
+  turma varchar(10) not null
+);
+
+INSERT INTO alunos(nome, RA,turma) VALUES('Guilherme', '2215100273','CC2016');
+  
+  
+INSERT INTO alunos(nome, RA,turma) VALUES('Katrina', '2215100272','CC2016');
+  
+  
+INSERT INTO alunos( nome, RA,turma)VALUES('Ana', '2215110273','CC2016');
+
+/**
+set ServerOutput on
+DECLARE
+  V_CONSULTA ALUNOS.RA%TYPE;
+  A_ALUNO ALUNOS%ROWTYPE;
+BEGIN
+  V_CONSULTA := &v_consulta;
+  SELECT * INTO A_ALUNO FROM ALUNOS WHERE ALUNOS.RA= V_CONSULTA;
+  dbms_output.put_line('NOME: ' || a_aluno.NOME || ' TURMA: ' || A_ALUNO.TURMA);
+END;
+/
+**/
+
+set ServerOutput on
+DECLARE
+  x number := 10;
+BEGIN
+  if (mod(x,2) =0) then
+    dbms_output.put_line('numero par');
+  else
+    dbms_output.put_line('numero impar');
+  end if;
+END;
+/
+  
+  
