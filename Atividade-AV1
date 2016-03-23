@@ -1,0 +1,29 @@
+
+CREATE TABLE funcionarios (nome VARCHAR(20), salario NUMBER);
+insert into funcionarios(nome, salario) VALUES ('Patricia',500);
+INSERT INTO funcionarios(nome, salario) VALUES ('Manoel',1000);
+INSERT INTO funcionarios(nome, salario) VALUES ('Julio',2000);
+INSERT INTO funcionarios(nome, salario) VALUES ('Gomes',3000);
+INSERT INTO funcionarios(nome, salario) VALUES ('Frank',4000);
+SELECT * FROM funcionarios;
+DROP TABLE FUNCIONARIOS;
+DECLARE
+sal NUMBER := &sal;
+f_tudo funcionarios%rowtype;
+BEGIN
+CASE  
+WHEN sal <= 500 THEN 
+  UPDATE funcionarios SET salario = salario *1.10 WHERE salario <= 500;
+WHEN sal BETWEEN 501 AND 1000 THEN
+  UPDATE Funcionarios SET salario = salario * 1.08 WHERE SALARIO BETWEEN 501 AND 1000;
+WHEN sal BETWEEN 1001 AND 2000 THEN
+  UPDATE Funcionarios SET salario = salario * 1.06 WHERE SALARIO BETWEEN 1001 AND 2000;
+WHEN sal BETWEEN 2001 AND 3000 THEN
+  UPDATE Funcionarios SET salario = salario * 1.05 WHERE SALARIO BETWEEN 2001 AND 3000;
+WHEN sal BETWEEN 3001 AND 4000 THEN
+  UPDATE Funcionarios SET salario = salario * 1.02 WHERE SALARIO BETWEEN 3001 AND 4000;
+END CASE;
+END;
+/
+
+ROLLBACK;
