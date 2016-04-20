@@ -1,0 +1,15 @@
+declare
+  v_nome empregados.nome%type;
+  v_dep EMPREGADOS.DEPARTAMENTO%type;
+  v_empno EMPREGADOS.EMPNO %type;
+  cursor c_empregados is SELECT * from empregados WHERE departamento = 30;
+begin
+    open c_empregados;
+    LOOP
+      fetch c_empregados into v_empno,v_nome,v_dep;
+      DBMS_OUTPUT.PUT_LINE(v_nome);
+      DBMS_OUTPUT.PUT_LINE(v_dep);
+      exit when c_empregados%notfound;
+    end loop;
+end;
+/
